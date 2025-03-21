@@ -1,0 +1,14 @@
+version: '3'
+services:
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: juice-shop
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - juice-shop-net
+
+networks:
+  juice-shop-net:
+    driver: bridge
