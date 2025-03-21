@@ -1,0 +1,12 @@
+{
+    "valid_user": {
+        "email": "admin@juice-sh.op",
+        "password": "admin123"
+    },
+    "expired_token": {
+        "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJleHAiOjE2MDAwMDAwMDB9.sV3EJwPz1tYkchY5AoLC5aEm0yKfqpCvKTCTuLaMKLM"
+    },
+    "jwt_tampering": {
+        "invalid_signature_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4ifQ.invalid_signature"
+    }
+}
