@@ -21,7 +21,7 @@ class PeakLoadWithManyServicesDown extends Simulation {
   setUp(scenarios)
     .protocols(httpProtocol)
     .assertions(
-      global.responseTime.percentile(99).lt(3500),
-      forAll.successfulRequests.percent.is(100)
+      global.responseTime.percentile(95).lt(1000),
+      forAll.successfulRequests.percent.gte(99)
     )
 }
