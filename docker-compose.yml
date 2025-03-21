@@ -1,14 +1,37 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  juice-shop:
+  juice-shop-1:
     image: bkimminich/juice-shop
+    expose:
+      - "3000"
+    #ports:
+    #- "3000:3000"
     deploy:
-      replicas: 3  # Scale Juice Shop with multiple instances
-      restart_policy:
-        condition: on-failure
-    networks:
-      - juice-net
+      resources:
+        limits:
+          cpus: "0.5"  
+          memory: "512M"
+
+  juice-shop-2:
+    image: bkimminich/juice-shop
+    expose:
+      - "3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
+
+  juice-shop-3:
+    image: bkimminich/juice-shop
+    expose:
+      - "3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
 
   nginx:
     image: nginx:latest
@@ -17,10 +40,6 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
     depends_on:
-      - juice-shop
-    networks:
-      - juice-net
-
-networks:
-  juice-net:
-    driver: bridge
+      - juice-shop-1
+      - juice-shop-2
+      - juice-shop-3
